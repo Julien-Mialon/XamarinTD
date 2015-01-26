@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:seasons="clr-namespace:Seasons;assembly=Seasons"
+             x:Class="Seasons.SeasonPage">
+	<ContentPage.BindingContext>
+		<seasons:SeasonViewModel />
+	</ContentPage.BindingContext>
+	
+	<StackLayout Orientation="Vertical"
+				 HorizontalOptions="CenterAndExpand"
+				 VerticalOptions="FillAndExpand"
+				 Padding="16,16,16,16"
+				 >
+		<!-- Bien penser à mettre vos images en tant que EmbeddedResources dans le projet !
+			Sous XamarinStudio : clic-droit, action de construction (ou build action) et mettre à EmbeddedResources (ou Resource incorporé)
+			Sous VisualStudio : clic-droid, propriétés, dans le panneau qui s'est ouvert, mettre actions de génération (ou build action) à resource
+								incorporé (ou EmbeddedResources)
+		-->
+		<Image Source="{Binding SeasonImage}"
+			   Aspect="AspectFit"
+			   />
+		
+		<Label Text="{Binding SeasonName}"
+			   FontSize="24"
+			   XAlign="Center"
+			   HorizontalOptions="FillAndExpand"
+			   />
+		
+		<!-- Bien mettre le binding pour la Date en mode TwoWay pour mettre à jour dans les deux sens-->
+		<DatePicker MinimumDate="{Binding StartYearDate}"
+					MaximumDate="{Binding EndYearDate}"
+					Date="{Binding SelectedDate, Mode=TwoWay}"
+					HorizontalOptions="FillAndExpand"
+					Format="dd/MM/yyyy"
+					/>
+	</StackLayout>
+	
+</ContentPage>
