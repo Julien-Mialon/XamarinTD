@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TodoListFull.ViewModels;assembly=TodoListFull"
+             x:Class="TodoListFull.Views.AddPage">
+	<ContentPage.BindingContext>
+		<viewModels:AddViewModel />
+	</ContentPage.BindingContext>
+	
+	<StackLayout HorizontalOptions="FillAndExpand"
+				 Padding="16,8,16,8"
+				 Orientation="Vertical"
+				 >
+		<Label Text="Add new todo item"
+			   FontSize="22"
+			   IsVisible="{Binding IsAddingItem}"
+			   />
+		<Label Text="Edit todo item"
+			   FontSize="22"
+			   IsVisible="{Binding IsEditingItem}"
+			   />
+		
+		<Entry Text="{Binding Title, Mode=TwoWay}"
+			   Placeholder="Title..."
+			   HorizontalOptions="FillAndExpand"
+			   />
+		
+		<Entry Text="{Binding Description, Mode=TwoWay}"
+			   Placeholder="Description..."
+			   HorizontalOptions="FillAndExpand"
+			   />
+		
+		<Button Text="Save"
+				HorizontalOptions="FillAndExpand"
+				TextColor="White"
+				BackgroundColor="Purple"
+				Command="{Binding SaveCommand}"
+				/>
+	</StackLayout>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TodoListFull.ViewModels;assembly=TodoListFull"
+             x:Class="TodoListFull.Views.DetailsPage">
+	<ContentPage.BindingContext>
+		<viewModels:DetailsViewModel />
+	</ContentPage.BindingContext>
+	
+	<StackLayout HorizontalOptions="FillAndExpand"
+				 Padding="16,8,16,8"
+				 Orientation="Vertical"
+				 >
+		<Label Text="{Binding Item.Title, StringFormat='Title : {0}'}"
+			   FontSize="22"
+			   LineBreakMode="WordWrap"
+			   />
+		<Label Text="{Binding Item.Description, StringFormat='Description : {0}'}"
+			   FontSize="22"
+			   LineBreakMode="WordWrap"
+			   />
+		
+		<StackLayout Orientation="Horizontal">
+			<Button Text="Edit"
+					HorizontalOptions="FillAndExpand"
+					TextColor="White"
+					BackgroundColor="Purple"
+					Command="{Binding EditCommand}"
+					/>
+
+			<Button Text="Delete"
+					HorizontalOptions="FillAndExpand"
+					TextColor="White"
+					BackgroundColor="Red"
+					Command="{Binding DeleteCommand}"
+					/>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

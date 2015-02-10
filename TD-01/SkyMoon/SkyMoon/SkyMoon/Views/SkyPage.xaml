@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels1="clr-namespace:SkyMoon.ViewModels;assembly=SkyMoon"
+             x:Class="SkyMoon.Views.SkyPage">
+	<ContentPage.BindingContext>
+		<viewModels1:SkyViewModel />
+	</ContentPage.BindingContext>
+	
+	<StackLayout Orientation="Vertical"
+				 HorizontalOptions="CenterAndExpand"
+				 VerticalOptions="FillAndExpand"
+				 >
+		<Image Source="{Binding Image}"
+			   Aspect="AspectFit"
+			   />
+		
+		<Label Text="You are in the sky"
+			   FontSize="22"
+			   HorizontalOptions="CenterAndExpand"
+			   />
+		
+		<Button Text="Let's see the moon"
+				HorizontalOptions="FillAndExpand"
+				Command="{Binding ButtonCommand}"
+				/>
+	</StackLayout>
+</ContentPage>
